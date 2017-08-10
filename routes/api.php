@@ -17,4 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/* Se define la ruta para listar los activos*/
 Route::get('activo/getAll', 'Admin\\ActivoController@getActivo');

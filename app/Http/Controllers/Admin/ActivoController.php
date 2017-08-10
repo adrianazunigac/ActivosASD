@@ -6,6 +6,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Activo;
+use App\TipoActivo;
+use App\EstadoActivo;
 use Illuminate\Http\Request;
 use Session;
 
@@ -35,10 +37,15 @@ class ActivoController extends Controller
 				->orWhere('estado', 'LIKE', "%$keyword%")
 				->paginate($perPage);
         } else {
+
+            $estado = new EstadoActivo();
+            $tipo = new TipoActivo();
             $activo = Activo::paginate($perPage);
         }
 
-        return view('admin.activo.index', compact('activo'));
+        return view('admin.activo.index', compact('activo'),['estado'=>$estado->all(),'tipo'=>$tipo->all()]);
+
+      
     }
 
     /**
