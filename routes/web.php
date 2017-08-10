@@ -19,6 +19,6 @@ Route::get('/inicio', function () {
     return view('home'); 
 });
 
-Route::resource('admin/activos', 'Admin\\ActivosController');
 Route::resource('admin/posts', 'Admin\\PostsController');
 Route::resource('admin/activo', 'Admin\\ActivoController');
+Route::get('admin/activo/edit/{id}','Admin\\ActivoController@edit');

@@ -100,9 +100,14 @@ class ActivoController extends Controller
      */
     public function edit($id)
     {
-        $activo = Activo::findOrFail($id);
 
-        return view('admin.activo.edit', compact('activo'));
+        $activo = Activo::findOrFail($id);
+        $estado = new EstadoActivo();
+        $tipo = new TipoActivo();
+
+      
+       return view('admin.activo.edit', compact('activo'),['estado'=>$estado->all(),'tipo'=>$tipo->all()]);
+
     }
 
     /**
@@ -121,7 +126,7 @@ class ActivoController extends Controller
         $activo = Activo::findOrFail($id);
         $activo->update($requestData);
 
-        Session::flash('flash_message', 'Activo updated!');
+        Session::flash('flash_message', 'Activo actualizado con Exito!');
 
         return redirect('admin/activo');
     }
@@ -137,7 +142,7 @@ class ActivoController extends Controller
     {
         Activo::destroy($id);
 
-        Session::flash('flash_message', 'Activo deleted!');
+        Session::flash('flash_message', 'Activo Eliminado con Exito!');
 
         return redirect('admin/activo');
     }

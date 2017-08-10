@@ -39,8 +39,8 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->numero }}</td><td>{{ $item->nombre }}</td><td>{{ $item->descripcion }}</td>
                                     <td>
-                                        <a href="{{ url('/admin/activo/' . $item->id) }}" title="View Activo"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
-                                        <a href="{{ url('/admin/activo/' . $item->id . '/edit') }}" title="Edit Activo"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
+                                        <a href="{{ url('/admin/activo/' . $item->id) }}" title="Ver Activo"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
+                                        <a href="{{ url('/admin/activo/edit/' . $item->id) }}" title="Editar Activo"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
                                         {!! Form::open([
                                         'method'=>'DELETE',
                                         'url' => ['/admin/activo', $item->id],
@@ -49,7 +49,7 @@
                                         {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Borrar', array(
                                         'type' => 'submit',
                                         'class' => 'btn btn-danger btn-xs',
-                                        'title' => 'Delete Activo',
+                                        'title' => 'Borrar Activo',
                                         'onclick'=>'return confirm("Esta seguro de eliminar el registro?")'
                                         )) !!}
                                         {!! Form::close() !!}
